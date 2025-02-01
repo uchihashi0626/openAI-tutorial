@@ -15,10 +15,7 @@ export async function POST(request) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini", // 必要に応じてGPT-3.5等に変えてください
       messages: [
-        { role: "system", content: `You are an assistant that strictly summarizes user-provided text in 50 words or fewer.
-    - If you exceed 50 words, you must truncate your answer at the 50th word.
-    - Do not include extra commentary or unnecessary details.
-    - Respond only with the summary, nothing else.
+        { role: "system", content: `文章を校閲し、誤字脱字を修正し、攻撃的な表現があれば柔らかい言葉に言い換えてください。ただし、元の意図を保持してください。
   ` },
         { role: "user", content: userInput },
       ],
