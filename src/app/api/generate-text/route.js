@@ -15,7 +15,7 @@ export async function POST(request) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini", // 必要に応じてGPT-3.5等に変えてください
       messages: [
-        { role: "system", content: `文章を校閲し、誤字脱字を修正し、攻撃的な表現があれば柔らかい言葉に言い換えてください。ただし、元の意図を保持してください。
+        { role: "system", content: `You are a helpful assistant.
   ` },
         { role: "user", content: userInput },
       ],
